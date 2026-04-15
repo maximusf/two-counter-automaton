@@ -1,0 +1,3 @@
+Build:
+Run:
+  python3 my_interpreter.py
