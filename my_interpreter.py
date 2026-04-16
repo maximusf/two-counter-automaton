@@ -151,15 +151,15 @@ def format_id(state, inp, c1, c2):
     """
     Format a configuration (ID) as a string for output.
     The format matches what the reference executable produces:
-    (state,remaining_input,counter1,counter2)
+    state,remaining_input,counter1,counter2
 
     Takes: state (str) - current state label.
            inp (str) - remaining input string.
            c1 (int) - counter 1 value.
            c2 (int) - counter 2 value.
-    Returns: (str) formatted ID like "(#,aabb,0,0)".
+    Returns: (str) formatted ID like "#,aabb,0,0".
     """
-    return f"({state},{inp},{c1},{c2})"
+    return f"{state},{inp},{c1},{c2}"
 
 
 def simulate(delta, inp):
@@ -220,10 +220,10 @@ def simulate(delta, inp):
     # Acceptance: input fully consumed AND both counters are zero
     if inp == '' and c1 == 0 and c2 == 0:
         debug(f"  Result: ACCEPT (input empty, c1={c1}, c2={c2})")
-        print("ACCEPT")
+        print("----ACCEPT")
     else:
         debug(f"  Result: REJECT (input='{inp}', c1={c1}, c2={c2})")
-        print("REJECT")
+        print("----REJECT")
 
 
 def main():
