@@ -27,8 +27,8 @@ TOTAL=0
 POSSIBLE=0
 
 for name in ab abc abcd equal01 match_delim1 semibalanced match_delim2; do
-    txt="${name}.txt"
-    inp="${name}.in"
+    txt="test/${name}.txt"
+    inp="test/${name}.in"
     pts=${POINTS[$name]}
     POSSIBLE=$((POSSIBLE + pts))
 
