@@ -27,8 +27,8 @@ TOTAL=0
 POSSIBLE=0
 
 for name in ab abc abcd equal01 match_delim1 semibalanced match_delim2; do
-    txt="test/${name}.txt"
-    inp="test/${name}.in"
+    txt="${name}.txt"
+    inp="${name}.in"
     pts=${POINTS[$name]}
     POSSIBLE=$((POSSIBLE + pts))
 
@@ -42,7 +42,7 @@ for name in ab abc abcd equal01 match_delim1 semibalanced match_delim2; do
     timeout 11 python3 my_interpreter.py "$txt" < "$inp" | sed 's/[ \t\r]//g' > /tmp/my_out_${name}.txt 2>/dev/null
 
     # Run the reference solution
-    timeout 11 ./2ca "$txt" < "$inp" | sed 's/[ \t\r]//g' > /tmp/ref_out_${name}.txt 2>/dev/null
+    timeout 11 /lib64/ld-linux-x86-64.so.2 ./2ca "$txt" < "$inp" | sed 's/[ \t\r]//g' > /tmp/ref_out_${name}.txt 2>/dev/null
 
     # Compare
     if diff -q /tmp/my_out_${name}.txt /tmp/ref_out_${name}.txt > /dev/null 2>&1; then
